@@ -21,7 +21,8 @@ mkdir -p ./logs
 
 source ~/fj32_scratch2/soumen/fcd/venvs/activate_nnunet.sh
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_ROOT="${SLURM_SUBMIT_DIR:-$(pwd)}"
+cd "${REPO_ROOT}"
 DATASET_ID="${1:-${DATASET_ID:-108}}"
 CONFIG="${CONFIG:-3d_fullres}"
 FOLD="${SLURM_ARRAY_TASK_ID}"
