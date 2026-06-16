@@ -122,6 +122,7 @@ Default settings:
 - `CONFIG=3d_fullres`
 - `TRAINER=nnUNetTrainer`
 - `PLANS=nnUNetPlans`
+- SLURM defaults: `1 GPU`, `8 CPUs`, `96G RAM`, `2 days`
 
 Submit example:
 
@@ -171,6 +172,10 @@ Optional controls:
 - `AUTO_PREP=1`: default, auto-run preprocessing and install splits
 - `VERIFY_DATASET_INTEGRITY=1`: run dataset integrity check during preprocessing
 - `PREPROCESS_NP=4`: number of preprocessing workers
+
+If your dataset or preprocessing step needs more memory or more time, increase
+the SLURM requests in `code/submit_nnunet_cv_m3.sh`. The current defaults are
+intentionally leaner to improve scheduling on the cluster.
 
 ## Bottleneck feature extraction
 

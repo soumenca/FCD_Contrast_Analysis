@@ -8,9 +8,9 @@
 #SBATCH --job-name=nnUNet_CV
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=128G
-#SBATCH --time=3-00:00:00
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=96G
+#SBATCH --time=2-00:00:00
 #SBATCH --output=./logs/%x_fold%a_%j.out
 #SBATCH --error=./logs/%x_fold%a_%j.err
 #SBATCH --array=0-4
