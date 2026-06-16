@@ -85,6 +85,24 @@ python3 code/convert_to_nnunetv2.py \
   --overwrite
 ```
 
+### 3. Install the shared CV splits into nnU-Net preprocessed folders
+
+Script:
+- [code/install_nnunet_splits.py](/Users/soumen/wkdir/CodexApp/FCD_Contrast_Analysis/code/install_nnunet_splits.py)
+
+nnU-Net training reads `splits_final.json` from the matching
+`nnUNet_preprocessed/DatasetXXX...` folder. Use this helper to copy the same
+split file into all experiment datasets so E1 to E8 use identical folds.
+
+Run:
+
+```bash
+python3 code/install_nnunet_splits.py \
+  --splits-file data/nnUNet_splits/splits_final.json \
+  --preprocessed-root /path/to/nnUNet_preprocessed \
+  --overwrite
+```
+
 ## nnU-Net training on M3
 
 Submission script:
@@ -92,6 +110,8 @@ Submission script:
 
 This script:
 
+- can automatically run nnU-Net planning and preprocessing
+- can automatically install the shared `splits_final.json`
 - runs 5-fold training with `#SBATCH --array=0-4`
 - activates `./venvs/activate_nnunet.sh`
 - trains one fold per array task
@@ -109,6 +129,13 @@ Submit example:
 cd FCD_Contrast_Analysis
 sbatch code/submit_nnunet_cv_m3.sh 108
 ```
+
+That single command can now do the full training setup automatically for the
+chosen dataset:
+
+1. run `nnUNetv2_plan_and_preprocess`
+2. copy the shared `splits_final.json` into the matching preprocessed folder
+3. start 5-fold CV training
 
 Override example:
 
@@ -136,7 +163,14 @@ Make sure these environment variables are set:
 - `nnUNet_preprocessed`
 - `nnUNet_results`
 
-Also make sure preprocessing has already been run for the dataset you want to train.
+The script can do preprocessing automatically, so you do not need to run that
+manually unless you want to.
+
+Optional controls:
+
+- `AUTO_PREP=1`: default, auto-run preprocessing and install splits
+- `VERIFY_DATASET_INTEGRITY=1`: run dataset integrity check during preprocessing
+- `PREPROCESS_NP=4`: number of preprocessing workers
 
 ## Bottleneck feature extraction
 
@@ -174,11 +208,10 @@ python3 code/extract_nnunet_bottleneck_features.py \
 1. Prepare local dataset under `data/dataset`
 2. Generate ratio images
 3. Convert to nnU-Net v2 format
-4. Run nnU-Net preprocessing
-5. Train 5 folds on M3
-6. Extract bottleneck feature vectors from trained folds
-7. Run PCA / UMAP / t-SNE on the extracted subject vectors
-8. Compare `FCD` vs `control` separability
+4. Submit one M3 batch job for training
+5. Extract bottleneck feature vectors from trained folds
+6. Run PCA / UMAP / t-SNE on the extracted subject vectors
+7. Compare `FCD` vs `control` separability
 
 ## Recommended training length
 
