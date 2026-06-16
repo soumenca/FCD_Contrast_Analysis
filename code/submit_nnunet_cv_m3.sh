@@ -19,7 +19,7 @@ set -euo pipefail
 
 mkdir -p ./logs
 
-source ./venvs/activate_nnunet.sh
+source ~/fj32_scratch2/soumen/fcd/venvs/activate_nnunet.sh
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DATASET_ID="${1:-${DATASET_ID:-108}}"
