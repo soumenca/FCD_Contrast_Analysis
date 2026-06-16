@@ -28,7 +28,7 @@ FOLD="${SLURM_ARRAY_TASK_ID}"
 PLANS="${PLANS:-nnUNetPlans}"
 TRAINER="${TRAINER:-nnUNetTrainer}"
 AUTO_PREP="${AUTO_PREP:-1}"
-SPLITS_FILE="${SPLITS_FILE:-${REPO_ROOT}/data/nnUNet_splits/splits_final.json}"
+SPLITS_FILE="${SPLITS_FILE:-${REPO_ROOT}/data/nnunet_data/nnUNet_splits/splits_final.json}"
 VERIFY_DATASET_INTEGRITY="${VERIFY_DATASET_INTEGRITY:-0}"
 PREPROCESS_NP="${PREPROCESS_NP:-4}"
 

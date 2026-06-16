@@ -72,15 +72,15 @@ This creates:
 
 It also creates one shared 5-fold split file:
 
-- `data/nnUNet_splits/splits_final.json`
+- `data/nnunet_data/nnUNet_splits/splits_final.json`
 
 Run:
 
 ```bash
 python3 code/convert_to_nnunetv2.py \
   --dataset-root data/dataset \
-  --output-root data/nnUNet_raw \
-  --splits-output data/nnUNet_splits/splits_final.json \
+  --output-root data/nnunet_data/nnUNet_raw \
+  --splits-output data/nnunet_data/nnUNet_splits/splits_final.json \
   --mode symlink \
   --overwrite
 ```
@@ -98,7 +98,7 @@ Run:
 
 ```bash
 python3 code/install_nnunet_splits.py \
-  --splits-file data/nnUNet_splits/splits_final.json \
+  --splits-file data/nnunet_data/nnUNet_splits/splits_final.json \
   --preprocessed-root /path/to/nnUNet_preprocessed \
   --overwrite
 ```
@@ -194,10 +194,10 @@ Example:
 ```bash
 python3 code/extract_nnunet_bottleneck_features.py \
   --model-folder data/nnUNet_results/Dataset108_E8_T1w_FLAIR_T1wDivFLAIR_FLAIRDivT1w/nnUNetTrainer__nnUNetPlans__3d_fullres \
-  --raw-dataset-dir data/nnUNet_raw/Dataset108_E8_T1w_FLAIR_T1wDivFLAIR_FLAIRDivT1w \
+  --raw-dataset-dir data/nnunet_data/nnUNet_raw/Dataset108_E8_T1w_FLAIR_T1wDivFLAIR_FLAIRDivT1w \
   --fold 0 \
   --subset val \
-  --splits-file data/nnUNet_splits/splits_final.json \
+  --splits-file data/nnunet_data/nnUNet_splits/splits_final.json \
   --output-csv results/fold0_val_bottleneck_features.csv \
   --output-npy results/fold0_val_bottleneck_features.npy \
   --metadata-json results/fold0_val_bottleneck_features.json
