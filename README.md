@@ -177,6 +177,34 @@ If your dataset or preprocessing step needs more memory or more time, increase
 the SLURM requests in `code/submit_nnunet_cv_m3.sh`. The current defaults are
 intentionally leaner to improve scheduling on the cluster.
 
+### Rebuild the nnU-Net venv on M3
+
+Files:
+
+- [code/requirements_m3_nnunet.txt](/Users/soumen/wkdir/CodexApp/FCD_Contrast_Analysis/code/requirements_m3_nnunet.txt)
+- [code/setup_m3_nnunet_env.sh](/Users/soumen/wkdir/CodexApp/FCD_Contrast_Analysis/code/setup_m3_nnunet_env.sh)
+
+These pin a safer M3 environment for this project, including:
+
+- `numpy<2`
+- `torch==2.1.2`
+- `torchvision==0.16.2`
+- `torchaudio==2.1.2`
+- `nnunetv2`
+
+Run on M3:
+
+```bash
+cd ~/fj32_scratch2/soumen/fcd/FCD_Contrast_Analysis
+bash code/setup_m3_nnunet_env.sh
+```
+
+Then activate:
+
+```bash
+source ~/fj32_scratch2/soumen/fcd/venvs/activate_nnunet.sh
+```
+
 ## Bottleneck feature extraction
 
 Main script:
