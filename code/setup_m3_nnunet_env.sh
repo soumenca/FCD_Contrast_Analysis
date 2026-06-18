@@ -12,6 +12,7 @@ source "${VENV_DIR}/bin/activate"
 
 pip install --upgrade pip setuptools wheel
 pip install --no-cache-dir -r "${REPO_ROOT}/code/requirements_m3_nnunet.txt"
+pip install --no-deps --no-cache-dir nnunetv2
 
 cat > "${VENV_ROOT}/activate_nnunet.sh" <<EOF
 source ${VENV_DIR}/bin/activate

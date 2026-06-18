@@ -190,7 +190,10 @@ These pin a safer M3 environment for this project, including:
 - `torch==2.1.2`
 - `torchvision==0.16.2`
 - `torchaudio==2.1.2`
-- `nnunetv2`
+- `nnunetv2` installed separately with `--no-deps`
+
+This avoids the broken `python-gdcm` build path, which is not needed for this
+project because the workflow uses `.nii.gz` data rather than DICOM input.
 
 Run on M3:
 
