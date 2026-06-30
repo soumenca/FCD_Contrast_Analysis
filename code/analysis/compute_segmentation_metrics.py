@@ -143,6 +143,13 @@ def aggregate_metrics(df: pd.DataFrame, group_name: str) -> dict:
         "num_pred_positive_cases": int(df["pred_nonempty"].sum()),
         "num_zero_dice_cases": int((df["dice"] == 0).sum()),
         "zero_dice_rate": float((df["dice"] == 0).mean()) if len(df) > 0 else 0.0,
+        "num_zero_dice_and_pred_positive_cases": int(
+            ((df["dice"] == 0) & (df["pred_nonempty"] == 1)).sum()
+        ),
+        "num_zero_dice_and_pred_empty_cases": int(
+            ((df["dice"] == 0) & (df["pred_nonempty"] == 0)).sum()
+        ),
+        "num_overlap_detected_cases": int((df["dice"] > 0).sum()),
     }
     for col in metric_cols:
         summary[f"{col}_mean"] = float(df[col].mean())
