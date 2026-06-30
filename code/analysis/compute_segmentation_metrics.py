@@ -75,6 +75,7 @@ def compute_case_metrics(pred_mask: np.ndarray, gt_mask: np.ndarray, voxel_volum
     iou = safe_divide(tp, tp + fp + fn)
     precision = safe_divide(tp, tp + fp, both_empty_value=1.0 if gt_voxels == 0 else 0.0)
     recall = safe_divide(tp, tp + fn)
+    sensitivity = recall
     specificity = safe_divide(tn, tn + fp)
     accuracy = safe_divide(tp + tn, tp + tn + fp + fn)
     fpr = safe_divide(fp, fp + tn, both_empty_value=0.0)
@@ -97,6 +98,7 @@ def compute_case_metrics(pred_mask: np.ndarray, gt_mask: np.ndarray, voxel_volum
         "iou": iou,
         "precision": precision,
         "recall": recall,
+        "sensitivity": sensitivity,
         "specificity": specificity,
         "accuracy": accuracy,
         "false_positive_rate": fpr,
@@ -124,6 +126,7 @@ def aggregate_metrics(df: pd.DataFrame, group_name: str) -> dict:
         "iou",
         "precision",
         "recall",
+        "sensitivity",
         "specificity",
         "accuracy",
         "false_positive_rate",
@@ -144,6 +147,14 @@ def aggregate_metrics(df: pd.DataFrame, group_name: str) -> dict:
         summary[f"{col}_std"] = float(df[col].std(ddof=0))
         summary[f"{col}_median"] = float(df[col].median())
     return summary
+
+
+def case_group(case_id: str) -> str:
+    if case_id.startswith("FCD_"):
+        return "FCD"
+    if case_id.startswith("CON_"):
+        return "control"
+    return "unknown"
 
 
 def find_fold_dirs(model_dir: Path) -> list[Path]:
@@ -206,6 +217,7 @@ def main() -> int:
             row = {
                 "fold": fold_name,
                 "case_id": case_id,
+                "group": case_group(case_id),
                 **metrics,
             }
             rows.append(row)
@@ -224,10 +236,14 @@ def main() -> int:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     per_case_csv = output_dir / "segmentation_metrics_per_case.csv"
+    fcd_per_case_csv = output_dir / "segmentation_metrics_per_case_fcd.csv"
+    control_per_case_csv = output_dir / "segmentation_metrics_per_case_control.csv"
     per_fold_csv = output_dir / "segmentation_metrics_per_fold.csv"
     summary_json = output_dir / "segmentation_metrics_summary.json"
 
     per_case_df.to_csv(per_case_csv, index=False)
+    per_case_df[per_case_df["group"] == "FCD"].to_csv(fcd_per_case_csv, index=False)
+    per_case_df[per_case_df["group"] == "control"].to_csv(control_per_case_csv, index=False)
     fold_summary_df.to_csv(per_fold_csv, index=False)
     summary_json.write_text(
         json.dumps(
@@ -236,6 +252,12 @@ def main() -> int:
                 "labels_dir": str(labels_dir),
                 "prediction_subdir": args.prediction_subdir,
                 "folds": fold_summaries,
+                "fcd_summary": aggregate_metrics(
+                    per_case_df[per_case_df["group"] == "FCD"], "FCD"
+                ),
+                "control_summary": aggregate_metrics(
+                    per_case_df[per_case_df["group"] == "control"], "control"
+                ),
                 "overall": overall_summary,
             },
             indent=2,
@@ -244,6 +266,8 @@ def main() -> int:
     )
 
     print(f"Wrote per-case metrics to {per_case_csv}")
+    print(f"Wrote FCD per-case metrics to {fcd_per_case_csv}")
+    print(f"Wrote control per-case metrics to {control_per_case_csv}")
     print(f"Wrote per-fold metrics to {per_fold_csv}")
     print(f"Wrote summary JSON to {summary_json}")
     return 0
