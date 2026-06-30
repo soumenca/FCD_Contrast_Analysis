@@ -163,6 +163,7 @@ def aggregate_positive_dice_metrics(df: pd.DataFrame, group_name: str) -> dict:
     summary = {
         "group": f"{group_name}_dice_gt_0",
         "num_cases": int(len(filtered)),
+        "detected_only_rate": float(len(filtered) / len(df)) if len(df) > 0 else 0.0,
     }
     if len(filtered) == 0:
         return summary
@@ -195,6 +196,74 @@ def case_group(case_id: str) -> str:
     if case_id.startswith("CON_"):
         return "control"
     return "unknown"
+
+
+def build_paper_summary_rows(
+    fcd_summary: dict,
+    control_summary: dict,
+    fcd_positive_dice_summary: dict,
+    control_positive_dice_summary: dict,
+) -> tuple[list[dict], list[dict]]:
+    main_rows = [
+        {
+            "group": "FCD",
+            "num_cases": fcd_summary["num_cases"],
+            "dice_mean": fcd_summary["dice_mean"],
+            "dice_std": fcd_summary["dice_std"],
+            "sensitivity_mean": fcd_summary["sensitivity_mean"],
+            "sensitivity_std": fcd_summary["sensitivity_std"],
+            "precision_mean": fcd_summary["precision_mean"],
+            "precision_std": fcd_summary["precision_std"],
+            "zero_dice_cases": fcd_summary["fcd_zero_dice_cases"],
+            "zero_dice_rate": fcd_summary["fcd_zero_dice_rate"],
+            "control_cases_with_predicted_lesion": np.nan,
+            "control_predicted_lesion_rate": np.nan,
+        },
+        {
+            "group": "control",
+            "num_cases": control_summary["num_cases"],
+            "dice_mean": np.nan,
+            "dice_std": np.nan,
+            "sensitivity_mean": np.nan,
+            "sensitivity_std": np.nan,
+            "precision_mean": np.nan,
+            "precision_std": np.nan,
+            "zero_dice_cases": np.nan,
+            "zero_dice_rate": np.nan,
+            "control_cases_with_predicted_lesion": control_summary[
+                "control_cases_with_predicted_lesion"
+            ],
+            "control_predicted_lesion_rate": control_summary[
+                "control_predicted_lesion_rate"
+            ],
+        },
+    ]
+
+    detected_only_rows = [
+        {
+            "group": "FCD_detected_only",
+            "num_cases_dice_gt_0": fcd_positive_dice_summary["num_cases"],
+            "detected_only_rate": fcd_positive_dice_summary["detected_only_rate"],
+            "dice_mean": fcd_positive_dice_summary.get("dice_mean", np.nan),
+            "dice_std": fcd_positive_dice_summary.get("dice_std", np.nan),
+            "sensitivity_mean": fcd_positive_dice_summary.get("sensitivity_mean", np.nan),
+            "sensitivity_std": fcd_positive_dice_summary.get("sensitivity_std", np.nan),
+            "precision_mean": fcd_positive_dice_summary.get("precision_mean", np.nan),
+            "precision_std": fcd_positive_dice_summary.get("precision_std", np.nan),
+        },
+        {
+            "group": "control_detected_only",
+            "num_cases_dice_gt_0": control_positive_dice_summary["num_cases"],
+            "detected_only_rate": control_positive_dice_summary["detected_only_rate"],
+            "dice_mean": control_positive_dice_summary.get("dice_mean", np.nan),
+            "dice_std": control_positive_dice_summary.get("dice_std", np.nan),
+            "sensitivity_mean": control_positive_dice_summary.get("sensitivity_mean", np.nan),
+            "sensitivity_std": control_positive_dice_summary.get("sensitivity_std", np.nan),
+            "precision_mean": control_positive_dice_summary.get("precision_mean", np.nan),
+            "precision_std": control_positive_dice_summary.get("precision_std", np.nan),
+        },
+    ]
+    return main_rows, detected_only_rows
 
 
 def find_fold_dirs(model_dir: Path) -> list[Path]:
@@ -310,6 +379,14 @@ def main() -> int:
             overall_positive_dice_summary,
         ]
     )
+    paper_rows, paper_detected_only_rows = build_paper_summary_rows(
+        fcd_summary,
+        control_summary,
+        fcd_positive_dice_summary,
+        control_positive_dice_summary,
+    )
+    paper_summary_df = pd.DataFrame(paper_rows)
+    paper_detected_only_df = pd.DataFrame(paper_detected_only_rows)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     per_case_csv = output_dir / "segmentation_metrics_per_case.csv"
@@ -317,6 +394,10 @@ def main() -> int:
     control_per_case_csv = output_dir / "segmentation_metrics_per_case_control.csv"
     per_fold_csv = output_dir / "segmentation_metrics_per_fold.csv"
     positive_dice_csv = output_dir / "segmentation_metrics_dice_gt_0_summary.csv"
+    paper_summary_csv = output_dir / "segmentation_metrics_paper_summary.csv"
+    paper_detected_only_csv = (
+        output_dir / "segmentation_metrics_paper_summary_detected_only.csv"
+    )
     summary_json = output_dir / "segmentation_metrics_summary.json"
 
     per_case_df.to_csv(per_case_csv, index=False)
@@ -324,6 +405,8 @@ def main() -> int:
     control_df.to_csv(control_per_case_csv, index=False)
     fold_summary_df.to_csv(per_fold_csv, index=False)
     positive_dice_summary_df.to_csv(positive_dice_csv, index=False)
+    paper_summary_df.to_csv(paper_summary_csv, index=False)
+    paper_detected_only_df.to_csv(paper_detected_only_csv, index=False)
     summary_json.write_text(
         json.dumps(
             {
@@ -349,6 +432,8 @@ def main() -> int:
     print(f"Wrote control per-case metrics to {control_per_case_csv}")
     print(f"Wrote per-fold metrics to {per_fold_csv}")
     print(f"Wrote Dice>0 summary metrics to {positive_dice_csv}")
+    print(f"Wrote paper summary metrics to {paper_summary_csv}")
+    print(f"Wrote paper detected-only metrics to {paper_detected_only_csv}")
     print(f"Wrote summary JSON to {summary_json}")
     return 0
 
