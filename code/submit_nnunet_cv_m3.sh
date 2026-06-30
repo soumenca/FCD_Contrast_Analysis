@@ -63,6 +63,22 @@ fi
 PREP_DONE_FILE="${nnUNet_preprocessed}/.dataset${DATASET_ID}_${CONFIG}_${PLANS}_ready"
 PREP_LOCK_DIR="${nnUNet_preprocessed}/.dataset${DATASET_ID}_${CONFIG}_${PLANS}_lock"
 
+get_dataset_dir() {
+  local matches=("${nnUNet_preprocessed}"/Dataset${DATASET_ID}_*)
+  if [[ ${#matches[@]} -eq 0 || ! -d "${matches[0]}" ]]; then
+    return 1
+  fi
+  printf '%s\n' "${matches[0]}"
+}
+
+prep_is_complete() {
+  local dataset_dir plans_file splits_target
+  dataset_dir="$(get_dataset_dir)" || return 1
+  plans_file="${dataset_dir}/${PLANS}.json"
+  splits_target="${dataset_dir}/splits_final.json"
+  [[ -f "${plans_file}" && -f "${splits_target}" ]]
+}
+
 prepare_dataset() {
   local verify_flag=""
   if [[ "${VERIFY_DATASET_INTEGRITY}" == "1" ]]; then
@@ -78,24 +94,42 @@ prepare_dataset() {
     --preprocessed-root "${nnUNet_preprocessed}" \
     --dataset-ids "${DATASET_ID}" \
     --overwrite
+
+  if ! prep_is_complete; then
+    echo "Preprocessing finished but required files are still missing for Dataset${DATASET_ID}"
+    get_dataset_dir || true
+    exit 1
+  fi
 }
 
 if [[ "${AUTO_PREP}" == "1" ]]; then
-  if [[ -f "${PREP_DONE_FILE}" ]]; then
+  if [[ -f "${PREP_DONE_FILE}" ]] && prep_is_complete; then
     echo "Dataset${DATASET_ID} preprocessing and split installation already marked done"
-  elif mkdir "${PREP_LOCK_DIR}" 2>/dev/null; then
-    trap 'rmdir "${PREP_LOCK_DIR}" 2>/dev/null || true' EXIT
-    prepare_dataset
-    touch "${PREP_DONE_FILE}"
-    rmdir "${PREP_LOCK_DIR}" 2>/dev/null || true
-    trap - EXIT
   else
-    echo "Another array task is preparing Dataset${DATASET_ID}. Waiting for completion..."
-    while [[ ! -f "${PREP_DONE_FILE}" ]]; do
-      sleep 30
-    done
-    echo "Preparation marker detected. Continuing to training."
+    if [[ -f "${PREP_DONE_FILE}" ]]; then
+    echo "Found stale preparation marker for Dataset${DATASET_ID}; re-running preprocessing"
+    rm -f "${PREP_DONE_FILE}"
+    fi
+
+    if mkdir "${PREP_LOCK_DIR}" 2>/dev/null; then
+      trap 'rmdir "${PREP_LOCK_DIR}" 2>/dev/null || true' EXIT
+      prepare_dataset
+      touch "${PREP_DONE_FILE}"
+      rmdir "${PREP_LOCK_DIR}" 2>/dev/null || true
+      trap - EXIT
+    else
+      echo "Another array task is preparing Dataset${DATASET_ID}. Waiting for completion..."
+      while [[ ! -f "${PREP_DONE_FILE}" ]] || ! prep_is_complete; do
+        sleep 30
+      done
+      echo "Preparation files detected. Continuing to training."
+    fi
   fi
+fi
+
+if ! prep_is_complete; then
+  echo "Required preprocessing outputs for Dataset${DATASET_ID} are missing in ${nnUNet_preprocessed}"
+  exit 1
 fi
 
 nnUNetv2_train "${DATASET_ID}" "${CONFIG}" "${FOLD}" \
