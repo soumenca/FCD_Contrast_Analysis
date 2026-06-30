@@ -141,11 +141,44 @@ def aggregate_metrics(df: pd.DataFrame, group_name: str) -> dict:
         "num_cases": int(len(df)),
         "num_gt_positive_cases": int(df["gt_nonempty"].sum()),
         "num_pred_positive_cases": int(df["pred_nonempty"].sum()),
+        "num_zero_dice_cases": int((df["dice"] == 0).sum()),
+        "zero_dice_rate": float((df["dice"] == 0).mean()) if len(df) > 0 else 0.0,
     }
     for col in metric_cols:
         summary[f"{col}_mean"] = float(df[col].mean())
         summary[f"{col}_std"] = float(df[col].std(ddof=0))
         summary[f"{col}_median"] = float(df[col].median())
+    return summary
+
+
+def aggregate_positive_dice_metrics(df: pd.DataFrame, group_name: str) -> dict:
+    filtered = df[df["dice"] > 0].copy()
+    summary = {
+        "group": f"{group_name}_dice_gt_0",
+        "num_cases": int(len(filtered)),
+    }
+    if len(filtered) == 0:
+        return summary
+
+    metric_cols = [
+        "dice",
+        "iou",
+        "precision",
+        "recall",
+        "sensitivity",
+        "specificity",
+        "accuracy",
+        "false_positive_rate",
+        "false_negative_rate",
+        "pred_volume_mm3",
+        "gt_volume_mm3",
+        "volume_diff_mm3",
+        "abs_volume_diff_mm3",
+    ]
+    for col in metric_cols:
+        summary[f"{col}_mean"] = float(filtered[col].mean())
+        summary[f"{col}_std"] = float(filtered[col].std(ddof=0))
+        summary[f"{col}_median"] = float(filtered[col].median())
     return summary
 
 
@@ -179,6 +212,7 @@ def main() -> int:
 
     rows: list[dict] = []
     fold_summaries: list[dict] = []
+    fold_positive_dice_summaries: list[dict] = []
 
     for fold_dir in fold_dirs:
         prediction_dir = fold_dir / args.prediction_subdir
@@ -224,6 +258,9 @@ def main() -> int:
 
         fold_df = pd.DataFrame([row for row in rows if row["fold"] == fold_name])
         fold_summaries.append(aggregate_metrics(fold_df, fold_name))
+        fold_positive_dice_summaries.append(
+            aggregate_positive_dice_metrics(fold_df, fold_name)
+        )
 
     if not rows:
         raise RuntimeError(
@@ -232,19 +269,54 @@ def main() -> int:
 
     per_case_df = pd.DataFrame(rows).sort_values(["fold", "case_id"]).reset_index(drop=True)
     overall_summary = aggregate_metrics(per_case_df, "overall")
-    fold_summary_df = pd.DataFrame(fold_summaries + [overall_summary])
+
+    fcd_df = per_case_df[per_case_df["group"] == "FCD"].copy()
+    control_df = per_case_df[per_case_df["group"] == "control"].copy()
+    fcd_summary = aggregate_metrics(fcd_df, "FCD")
+    control_summary = aggregate_metrics(control_df, "control")
+    overall_positive_dice_summary = aggregate_positive_dice_metrics(per_case_df, "overall")
+    fcd_positive_dice_summary = aggregate_positive_dice_metrics(fcd_df, "FCD")
+    control_positive_dice_summary = aggregate_positive_dice_metrics(control_df, "control")
+
+    fcd_summary["fcd_zero_dice_cases"] = fcd_summary["num_zero_dice_cases"]
+    fcd_summary["fcd_zero_dice_rate"] = fcd_summary["zero_dice_rate"]
+    control_summary["control_cases_with_predicted_lesion"] = control_summary["num_pred_positive_cases"]
+    control_summary["control_predicted_lesion_rate"] = safe_divide(
+        control_summary["num_pred_positive_cases"],
+        control_summary["num_cases"],
+        both_empty_value=0.0,
+    )
+
+    fold_summary_df = pd.DataFrame(
+        fold_summaries
+        + [
+            fcd_summary,
+            control_summary,
+            overall_summary,
+        ]
+    )
+    positive_dice_summary_df = pd.DataFrame(
+        fold_positive_dice_summaries
+        + [
+            fcd_positive_dice_summary,
+            control_positive_dice_summary,
+            overall_positive_dice_summary,
+        ]
+    )
 
     output_dir.mkdir(parents=True, exist_ok=True)
     per_case_csv = output_dir / "segmentation_metrics_per_case.csv"
     fcd_per_case_csv = output_dir / "segmentation_metrics_per_case_fcd.csv"
     control_per_case_csv = output_dir / "segmentation_metrics_per_case_control.csv"
     per_fold_csv = output_dir / "segmentation_metrics_per_fold.csv"
+    positive_dice_csv = output_dir / "segmentation_metrics_dice_gt_0_summary.csv"
     summary_json = output_dir / "segmentation_metrics_summary.json"
 
     per_case_df.to_csv(per_case_csv, index=False)
-    per_case_df[per_case_df["group"] == "FCD"].to_csv(fcd_per_case_csv, index=False)
-    per_case_df[per_case_df["group"] == "control"].to_csv(control_per_case_csv, index=False)
+    fcd_df.to_csv(fcd_per_case_csv, index=False)
+    control_df.to_csv(control_per_case_csv, index=False)
     fold_summary_df.to_csv(per_fold_csv, index=False)
+    positive_dice_summary_df.to_csv(positive_dice_csv, index=False)
     summary_json.write_text(
         json.dumps(
             {
@@ -252,12 +324,12 @@ def main() -> int:
                 "labels_dir": str(labels_dir),
                 "prediction_subdir": args.prediction_subdir,
                 "folds": fold_summaries,
-                "fcd_summary": aggregate_metrics(
-                    per_case_df[per_case_df["group"] == "FCD"], "FCD"
-                ),
-                "control_summary": aggregate_metrics(
-                    per_case_df[per_case_df["group"] == "control"], "control"
-                ),
+                "folds_dice_gt_0": fold_positive_dice_summaries,
+                "fcd_summary": fcd_summary,
+                "control_summary": control_summary,
+                "fcd_summary_dice_gt_0": fcd_positive_dice_summary,
+                "control_summary_dice_gt_0": control_positive_dice_summary,
+                "overall_dice_gt_0": overall_positive_dice_summary,
                 "overall": overall_summary,
             },
             indent=2,
@@ -269,6 +341,7 @@ def main() -> int:
     print(f"Wrote FCD per-case metrics to {fcd_per_case_csv}")
     print(f"Wrote control per-case metrics to {control_per_case_csv}")
     print(f"Wrote per-fold metrics to {per_fold_csv}")
+    print(f"Wrote Dice>0 summary metrics to {positive_dice_csv}")
     print(f"Wrote summary JSON to {summary_json}")
     return 0
 
