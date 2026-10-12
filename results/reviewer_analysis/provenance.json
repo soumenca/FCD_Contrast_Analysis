@@ -1,0 +1,63 @@
+{
+  "fcd_subjects": 85,
+  "common_detected_subjects": 16,
+  "common_detected_by_fold": {
+    "fold_0": 3,
+    "fold_1": 1,
+    "fold_2": 5,
+    "fold_3": 3,
+    "fold_4": 4
+  },
+  "sources": [
+    {
+      "configuration": "E1",
+      "source": "doc/analysis/Dataset101/E1_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "29ebb25ae2bff801c3113f86c43d92079e5ea016a3fbc71f265e764e99d78401"
+    },
+    {
+      "configuration": "E2",
+      "source": "doc/analysis/Dataset102/E2_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "5888750e9ce60cfb6dd7f0fc4d465edd7db0cb5589f597e4008b19cb70a17070"
+    },
+    {
+      "configuration": "E3",
+      "source": "doc/analysis/Dataset103/E3_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "8578a0b8fe32e343d6238b6dca3e49b02a002c3445af19af0408386db79ac46c"
+    },
+    {
+      "configuration": "E4",
+      "source": "doc/analysis/Dataset104/E4_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "2a90574e2935c4dfa48740ff22301c7cc7b76df5aa6420b73c8852b4577397d1"
+    },
+    {
+      "configuration": "E5",
+      "source": "doc/analysis/Dataset105/E5_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "40f1600d5d1c84b1335fa96ed1768d2031c7d843e0717c246880fd14e2e4f651"
+    },
+    {
+      "configuration": "E6",
+      "source": "doc/analysis/Dataset106/E6_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "2d27e02ed1d1197410dbc72e7ad2133a11cec968d057aca8cd6741dc29746c86"
+    },
+    {
+      "configuration": "E7",
+      "source": "doc/analysis/Dataset107/E7_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "191f34c168bac38bdc213739b17b4e1be8353f526d440f964d36c609c18be8f5"
+    },
+    {
+      "configuration": "E8",
+      "source": "doc/analysis/Dataset108/E8_segmentation_metrics_per_case_fcd.csv",
+      "sha256": "20ced46a7a444911707d8dc57568e2c6be12a51bbd2ff157046c62f3c6ef44a2"
+    }
+  ],
+  "splits": "data/nnUNet_splits/splits_final.json",
+  "splits_sha256": "ed8b87e81f7ddafb0cca89e87f32e5a3b512d5f5b096696119e93b1bbf31761c",
+  "validation": "Unique IDs, complete case coverage, split agreement, Dice from confusion counts, and existing paper-summary means/SDs verified.",
+  "outputs_sha256": {
+    "subject_level_dice_E1_E8.csv": "814091be3ca3e44540bd444c99bffa51b4317ebaba14cb081e6b8c0ad10aee11",
+    "subject_level_metrics_E1_E8.csv": "6d573fc82ac9e98690677e3a536db2ff4b476ccd547cee249e4e0420513eeb4d",
+    "common_detected_dice_summary.csv": "518d642fb27fcf759fca081a72cd7a225ccceea90aa1f5461782452a7c023d34",
+    "fold_wise_metrics.csv": "74534ec1f5347e17c5acb40ef619495fec0296183afb7c48f0eee2e8620e21c2",
+    "variability_across_fold_means.csv": "8fb5e168642200c8863b78e645b3e127b7bdc1bab75ac2dafd37226bee7ef4f4"
+  }
+}
