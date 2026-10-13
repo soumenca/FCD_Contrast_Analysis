@@ -1,0 +1,1409 @@
+{
+  "method": "Minimum and maximum over finite saved ratio intensities inside brain_mask > 0. Zeros and negative values retained. No normalization, clipping, resampling or inference performed.",
+  "software": {
+    "numpy": "2.3.4",
+    "nibabel": "5.3.2"
+  },
+  "summaries": [
+    {
+      "ratio": "T1w_div_FLAIR",
+      "group": "all",
+      "subjects": 110,
+      "minimum": -736480832.0,
+      "maximum": 788293824.0,
+      "minimum_case_ids": "FCD_041",
+      "maximum_case_ids": "FCD_041",
+      "brain_voxels": 180194098,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 1018431,
+      "negative_voxels": 279792
+    },
+    {
+      "ratio": "T1w_div_FLAIR",
+      "group": "FCD",
+      "subjects": 85,
+      "minimum": -736480832.0,
+      "maximum": 788293824.0,
+      "minimum_case_ids": "FCD_041",
+      "maximum_case_ids": "FCD_041",
+      "brain_voxels": 141855504,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 681134,
+      "negative_voxels": 221017
+    },
+    {
+      "ratio": "T1w_div_FLAIR",
+      "group": "control",
+      "subjects": 25,
+      "minimum": -705121728.0,
+      "maximum": 662499136.0,
+      "minimum_case_ids": "CON_011",
+      "maximum_case_ids": "CON_011",
+      "brain_voxels": 38338594,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 337297,
+      "negative_voxels": 58775
+    },
+    {
+      "ratio": "FLAIR_div_T1w",
+      "group": "all",
+      "subjects": 110,
+      "minimum": -48301.00390625,
+      "maximum": 379242.8125,
+      "minimum_case_ids": "FCD_065",
+      "maximum_case_ids": "FCD_077",
+      "brain_voxels": 180194098,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 9811,
+      "negative_voxels": 791744
+    },
+    {
+      "ratio": "FLAIR_div_T1w",
+      "group": "FCD",
+      "subjects": 85,
+      "minimum": -48301.00390625,
+      "maximum": 379242.8125,
+      "minimum_case_ids": "FCD_065",
+      "maximum_case_ids": "FCD_077",
+      "brain_voxels": 141855504,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 7493,
+      "negative_voxels": 564284
+    },
+    {
+      "ratio": "FLAIR_div_T1w",
+      "group": "control",
+      "subjects": 25,
+      "minimum": -4.99128645969904e-06,
+      "maximum": 348.1315612792969,
+      "minimum_case_ids": "CON_025",
+      "maximum_case_ids": "CON_017",
+      "brain_voxels": 38338594,
+      "nonfinite_voxels": 0,
+      "zero_voxels": 2318,
+      "negative_voxels": 227460
+    }
+  ],
+  "sources": [
+    {
+      "case_id": "CON_001",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_001_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00019/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_002",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_002_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00025/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_003",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_003_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00029/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_004",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_004_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00036/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_005",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_005_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00037/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_006",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_006_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00049/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_007",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_007_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00056/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_008",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_008_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00069/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_009",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_009_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00079/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_010",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_010_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00085/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_011",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_011_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00111/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_012",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_012_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00113/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_013",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_013_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00127/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_014",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_014_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00135/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_015",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_015_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00137/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_016",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_016_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00148/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_017",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_017_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00151/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_018",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_018_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00152/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_019",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_019_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00153/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_020",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_020_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00154/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_021",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_021_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00157/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_022",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_022_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00159/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_023",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_023_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00166/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_024",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_024_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00169/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_025",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/CON_025_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00170/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_001",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_001_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00001/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_002",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_002_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00003/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_003",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_003_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00004/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_004",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_004_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00006/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_005",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_005_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00009/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_006",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_006_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00010/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_007",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_007_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00014/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_008",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_008_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00015/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_009",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_009_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00016/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_010",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_010_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00018/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_011",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_011_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00020/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_012",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_012_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00024/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_013",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_013_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00027/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_014",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_014_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00032/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_015",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_015_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00033/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_016",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_016_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00034/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_017",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_017_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00038/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_018",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_018_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00040/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_019",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_019_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00043/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_020",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_020_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00044/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_021",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_021_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00047/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_022",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_022_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00048/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_023",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_023_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00050/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_024",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_024_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00053/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_025",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_025_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00055/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_026",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_026_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00058/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_027",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_027_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00059/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_028",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_028_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00060/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_029",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_029_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00061/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_030",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_030_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00062/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_031",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_031_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00063/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_032",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_032_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00064/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_033",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_033_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00065/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_034",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_034_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00066/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_035",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_035_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00068/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_036",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_036_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00071/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_037",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_037_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00072/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_038",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_038_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00073/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_039",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_039_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00074/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_040",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_040_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00076/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_041",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_041_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00077/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_042",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_042_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00078/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_043",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_043_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00080/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_044",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_044_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00081/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_045",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_045_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00083/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_046",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_046_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00087/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_047",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_047_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00089/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_048",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_048_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00090/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_049",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_049_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00091/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_050",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_050_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00092/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_051",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_051_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00095/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_052",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_052_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00097/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_053",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_053_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00098/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_054",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_054_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00099/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_055",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_055_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00100/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_056",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_056_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00101/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_057",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_057_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00103/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_058",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_058_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00105/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_059",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_059_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00107/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_060",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_060_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00108/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_061",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_061_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00109/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_062",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_062_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00112/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_063",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_063_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00115/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_064",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_064_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00116/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_065",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_065_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00120/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_066",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_066_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00121/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_067",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_067_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00122/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_068",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_068_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00123/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_069",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_069_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00125/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_070",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_070_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00126/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_071",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_071_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00128/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_072",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_072_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00130/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_073",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_073_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00131/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_074",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_074_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00132/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_075",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_075_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00133/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_076",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_076_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00134/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_077",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_077_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00136/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_078",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_078_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00138/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_079",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_079_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00139/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_080",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_080_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00140/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_081",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_081_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00141/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_082",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_082_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00142/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_083",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_083_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00144/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_084",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_084_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00145/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_085",
+      "ratio": "T1w_div_FLAIR",
+      "raw_image": "data/nnUNet_raw/Dataset103_E3_T1wDivFLAIR/imagesTr/FCD_085_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00146/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_001",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_001_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00019/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_002",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_002_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00025/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_003",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_003_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00029/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_004",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_004_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00036/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_005",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_005_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00037/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_006",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_006_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00049/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_007",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_007_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00056/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_008",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_008_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00069/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_009",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_009_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00079/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_010",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_010_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00085/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_011",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_011_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00111/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_012",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_012_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00113/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_013",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_013_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00127/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_014",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_014_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00135/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_015",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_015_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00137/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_016",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_016_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00148/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_017",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_017_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00151/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_018",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_018_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00152/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_019",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_019_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00153/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_020",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_020_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00154/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_021",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_021_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00157/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_022",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_022_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00159/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_023",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_023_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00166/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_024",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_024_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00169/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "CON_025",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/CON_025_0000.nii.gz",
+      "brain_mask": "data/dataset/controls/sub-00170/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_001",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_001_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00001/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_002",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_002_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00003/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_003",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_003_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00004/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_004",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_004_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00006/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_005",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_005_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00009/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_006",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_006_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00010/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_007",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_007_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00014/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_008",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_008_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00015/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_009",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_009_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00016/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_010",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_010_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00018/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_011",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_011_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00020/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_012",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_012_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00024/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_013",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_013_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00027/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_014",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_014_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00032/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_015",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_015_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00033/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_016",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_016_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00034/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_017",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_017_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00038/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_018",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_018_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00040/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_019",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_019_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00043/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_020",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_020_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00044/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_021",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_021_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00047/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_022",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_022_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00048/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_023",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_023_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00050/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_024",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_024_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00053/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_025",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_025_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00055/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_026",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_026_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00058/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_027",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_027_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00059/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_028",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_028_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00060/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_029",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_029_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00061/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_030",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_030_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00062/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_031",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_031_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00063/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_032",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_032_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00064/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_033",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_033_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00065/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_034",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_034_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00066/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_035",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_035_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00068/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_036",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_036_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00071/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_037",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_037_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00072/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_038",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_038_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00073/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_039",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_039_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00074/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_040",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_040_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00076/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_041",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_041_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00077/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_042",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_042_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00078/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_043",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_043_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00080/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_044",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_044_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00081/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_045",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_045_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00083/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_046",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_046_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00087/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_047",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_047_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00089/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_048",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_048_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00090/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_049",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_049_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00091/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_050",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_050_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00092/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_051",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_051_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00095/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_052",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_052_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00097/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_053",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_053_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00098/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_054",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_054_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00099/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_055",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_055_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00100/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_056",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_056_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00101/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_057",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_057_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00103/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_058",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_058_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00105/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_059",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_059_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00107/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_060",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_060_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00108/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_061",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_061_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00109/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_062",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_062_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00112/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_063",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_063_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00115/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_064",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_064_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00116/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_065",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_065_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00120/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_066",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_066_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00121/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_067",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_067_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00122/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_068",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_068_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00123/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_069",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_069_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00125/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_070",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_070_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00126/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_071",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_071_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00128/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_072",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_072_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00130/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_073",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_073_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00131/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_074",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_074_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00132/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_075",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_075_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00133/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_076",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_076_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00134/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_077",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_077_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00136/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_078",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_078_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00138/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_079",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_079_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00139/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_080",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_080_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00140/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_081",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_081_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00141/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_082",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_082_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00142/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_083",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_083_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00144/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_084",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_084_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00145/brain_mask.nii.gz"
+    },
+    {
+      "case_id": "FCD_085",
+      "ratio": "FLAIR_div_T1w",
+      "raw_image": "data/nnUNet_raw/Dataset104_E4_FLAIRDivT1w/imagesTr/FCD_085_0000.nii.gz",
+      "brain_mask": "data/dataset/subjects/sub-00146/brain_mask.nii.gz"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "FCD_041",
+    "ratio": "T1w/FLAIR",
+    "extreme": "minimum",
+    "voxel_index": [
+      129,
+      42,
+      22
+    ],
+    "saved_ratio": -736480832.0,
+    "numerator": 784.5858764648438,
+    "denominator": -1.0653174058461445e-06,
+    "division_float32": -736480832.0,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  },
+  {
+    "case_id": "FCD_041",
+    "ratio": "T1w/FLAIR",
+    "extreme": "maximum",
+    "voxel_index": [
+      103,
+      32,
+      24
+    ],
+    "saved_ratio": 788293824.0,
+    "numerator": 806.9990844726562,
+    "denominator": 1.0237288279313361e-06,
+    "division_float32": 788293824.0,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  },
+  {
+    "case_id": "FCD_065",
+    "ratio": "FLAIR/T1w",
+    "extreme": "minimum",
+    "voxel_index": [
+      48,
+      113,
+      120
+    ],
+    "saved_ratio": -48301.00390625,
+    "numerator": 46.69209671020508,
+    "denominator": -0.0009666899568401277,
+    "division_float32": -48301.00390625,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  },
+  {
+    "case_id": "FCD_065",
+    "ratio": "FLAIR/T1w",
+    "extreme": "maximum",
+    "voxel_index": [
+      48,
+      102,
+      121
+    ],
+    "saved_ratio": 34118.0390625,
+    "numerator": 29.254932403564453,
+    "denominator": 0.0008574622916057706,
+    "division_float32": 34118.0390625,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  },
+  {
+    "case_id": "FCD_077",
+    "ratio": "FLAIR/T1w",
+    "extreme": "minimum",
+    "voxel_index": [
+      145,
+      166,
+      79
+    ],
+    "saved_ratio": -0.004879826679825783,
+    "numerator": -0.00020058077643625438,
+    "denominator": 0.04110407829284668,
+    "division_float32": -0.004879826679825783,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  },
+  {
+    "case_id": "FCD_077",
+    "ratio": "FLAIR/T1w",
+    "extreme": "maximum",
+    "voxel_index": [
+      24,
+      162,
+      57
+    ],
+    "saved_ratio": 379242.8125,
+    "numerator": 35.377742767333984,
+    "denominator": 9.32852053665556e-05,
+    "division_float32": 379242.8125,
+    "denominator_above_epsilon_1e_6": true,
+    "mask_value": 1.0
+  }
+]

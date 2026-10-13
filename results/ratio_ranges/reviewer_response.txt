@@ -1,0 +1,19 @@
+Suggested response to Reviewer 3
+
+We measured the voxel-intensity ranges of the saved ratio images in the nnU-Net raw datasets, before nnU-Net z-score normalization. For each subject, voxels were included where the corresponding brain mask was greater than zero. Across all 110 subjects (85 FCD subjects and 25 controls), T1w/FLAIR ranged from -736,480,832 to 788,293,824, and FLAIR/T1w ranged from -48,301.00390625 to 379,242.8125. These are global voxel-wise extrema across the cohort, not averages of subject-level extrema. The FCD-only cohort had the same global extrema. No NaN or infinite values were found inside the brain masks in either ratio image set. Zero and negative values were retained in the range calculation, with no clipping or additional normalization.
+
+The extreme voxels were checked directly against their source T1w and FLAIR intensities. The large magnitudes arise from division by small nonzero denominators, while negative ratios at these extrema reflect negative denominator values. In particular, the T1w/FLAIR minimum and maximum occurred in FCD_041, at FLAIR intensities of approximately -1.0653e-6 and 1.0237e-6, respectively. Both denominators satisfy the implemented criterion abs(denominator) > 1e-6. Thus, the epsilon threshold prevents division by zero or sufficiently small denominators but does not bound the ratio magnitude or ensure nonnegative ratios. The origin of negative source intensities was not established by this analysis.
+
+No clipping, winsorization, or intensity-range truncation was applied to the ratio maps before nnU-Net preprocessing. Finite extreme and negative values were retained; only voxels with absolute denominators <= 1e-6, or nonfinite division results, were assigned zero. The dataset-conversion code copies or symlinks the saved ratio maps without modifying intensities, and the reported ranges were measured directly through the nnUNet_raw input paths.
+
+Control-only ranges
+T1w/FLAIR: -705,121,728 to 662,499,136.
+FLAIR/T1w: -0.00000499128645969904 to 348.1315612792969.
+
+Reproduction
+Run from the repository root:
+python3 code/analysis/compute_ratio_ranges.py
+
+Inputs: Dataset103 and Dataset104 imagesTr under data/nnUNet_raw. Each image symlink resolves to a subject directory containing brain_mask.nii.gz. Image/mask shapes and spatial affine matrices are checked before measurement. Lesion labels are not used as brain masks.
+
+Outputs: ratio_ranges_per_subject.csv (220 rows), ratio_ranges_summary.csv (six cohort/ratio summaries), ratio_ranges_provenance.json and extreme_voxel_checks.json (direct checks of extreme voxels). No retraining, inference, resampling or modification of input images was performed.
